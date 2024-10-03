@@ -1,14 +1,24 @@
 <?php
-    $connect=mysqli_connect("localhost", "root", "", "website");
+    $connect = mysqli_connect("localhost", "root", "", "website");
 
-    if(!$connect)
-    {
-        die("Connection Failed...!");
+    if (!$connect) {
+        die("Connection Failed: " . mysqli_connect_error());
     }
 
-    $sql="insert into fooddelivary (Name, Email, Contact, Feedback) values ('$name', '$email', '$conact', '$feedback')";
+    echo "Connected";
 
-    mysqli_query($connect, $sql);
+    $name = mysqli_real_escape_string($connect, $_POST['name']);
+    $email = mysqli_real_escape_string($connect, $_POST['email']);
+    $phone = mysqli_real_escape_string($connect, $_POST['phone']);
+    $review = mysqli_real_escape_string($connect, $_POST['review']);
 
-    mysqli_close($connect)
+    $sql = "INSERT INTO fooddelivary (Name, Email, Contact, Feedback) VALUES ('$name', '$email', '$phone', '$review')";
+
+    if (mysqli_query($connect, $sql)) {
+        echo "New record created successfully!";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($connect);
+    }
+
+    mysqli_close($connect);
 ?>
