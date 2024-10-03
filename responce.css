@@ -25,6 +25,9 @@
     font-size: 0.8rem;
 }
 
+#home div{
+    margin: -25px;
+}
 #services{
     flex-direction: column;
     margin: 0px 35px;
@@ -41,17 +44,17 @@
     padding: 6px;
     height: auto;
 }
-/* 
-#contact{
-    padding: 0px 0px;
-} */
 
 #contact-box form{
     width: 80%;
 }
 
 .h-primary{
-    font-size: 26px;
+    font-size: 2.3rem;
+}
+
+.h-secondary{
+    font-size: 1.7rem;
 }
 
 .btn{
@@ -59,7 +62,7 @@
     padding: 4px 8px;
 }
 
-.center1{
+.foot{
     padding: 0px 0px;
     font-size: 0.67rem;
 }
